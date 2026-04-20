@@ -1,0 +1,83 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[T2A]{fontenc}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{setspace}
+
+\geometry{left=25mm, right=15mm, top=20mm, bottom=20mm}
+\onehalfspacing
+\hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue}
+
+\title{Концентрация экономической активности в городских агломерациях:\\
+эмпирический анализ на данных регионов России}
+\author{И.\,И. Иванов\thanks{Институт региональной экономики; \texttt{ivanov@example.ru}}}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent В работе исследуется степень концентрации экономической активности
+в крупнейших городских агломерациях России за период 2010--2023 гг.
+На основе индексов Херфиндаля--Хиршмана и локализации (LQ) показано,
+что рост агломерационного эффекта положительно связан с производительностью труда
+($\beta = 0{,}34$, $p < 0{,}01$). Результаты имеют значение для политики
+пространственного развития.
+
+\medskip\noindent\textbf{Ключевые слова:} агломерация, региональная экономика,
+индекс локализации, пространственная эконометрика.
+
+\medskip\noindent\textbf{JEL:} R11, R12, O18.
+\end{abstract}
+
+\section{Введение}
+Городские агломерации выступают драйверами экономического роста~\citep{glaeser2011}.
+В России на 20 крупнейших агломераций приходится более 50\% ВВП.
+
+\section{Данные и методология}
+Используются данные Росстата по 85 субъектам РФ. Индекс локализации:
+\begin{equation}
+    LQ_{ij} = \frac{E_{ij}/E_i}{E_j/E},
+    \label{eq:lq}
+\end{equation}
+где $E_{ij}$~--- занятость в отрасли $j$ региона $i$.
+
+\section{Результаты}
+Основные результаты регрессии представлены в табл.~\ref{tab:main}.
+
+\begin{table}[htbp]
+\centering
+\caption{Оценки связи агломерации и производительности}
+\label{tab:main}
+\begin{tabular}{lcc}
+\toprule
+ & (1) OLS & (2) FE \\
+\midrule
+Индекс агломерации & $0{,}41^{***}$ & $0{,}34^{***}$ \\
+                   & $(0{,}08)$     & $(0{,}09)$     \\
+Плотность населения & $0{,}12^{**}$ & $0{,}10^{*}$   \\
+                   & $(0{,}05)$     & $(0{,}06)$     \\
+\midrule
+$N$ & 1190 & 1190 \\
+$R^2$ & 0{,}42 & 0{,}61 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Заключение}
+Агломерационный эффект значим и экономически важен.
+
+\bibliographystyle{plainnat}
+\begin{thebibliography}{1}
+\bibitem[Glaeser(2011)]{glaeser2011}
+Glaeser E. \emph{Triumph of the City}. Penguin Press, 2011.
+\end{thebibliography}
+
+\end{document}
