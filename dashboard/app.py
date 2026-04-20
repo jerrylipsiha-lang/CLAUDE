@@ -98,7 +98,7 @@ with left:
         showcountries=True,
     )
     fig_map.update_layout(margin=dict(l=0, r=0, t=0, b=0), height=450)
-    st.plotly_chart(fig_map, use_container_width=True)
+    st.plotly_chart(fig_map, width="stretch")
 
 with right:
     st.subheader(f"Рейтинг по {metric}")
@@ -111,7 +111,7 @@ with right:
         color_continuous_scale="Viridis",
     )
     fig_bar.update_layout(height=450, showlegend=False)
-    st.plotly_chart(fig_bar, use_container_width=True)
+    st.plotly_chart(fig_bar, width="stretch")
 
 st.subheader("Динамика во времени")
 fig_line = px.line(
@@ -122,7 +122,7 @@ fig_line = px.line(
     markers=True,
 )
 fig_line.update_layout(height=400)
-st.plotly_chart(fig_line, use_container_width=True)
+st.plotly_chart(fig_line, width="stretch")
 
 with st.expander("Посмотреть таблицу"):
-    st.dataframe(snap.reset_index(drop=True), use_container_width=True)
+    st.dataframe(snap.reset_index(drop=True), width="stretch")

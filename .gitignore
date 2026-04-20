@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+*.pyo
+
+# LaTeX build artefacts
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.toc
+paper/*.bbl
+paper/*.blg
+paper/*.fls
+paper/*.fdb_latexmk
+paper/*.synctex.gz

@@ -1,5 +1,23 @@
 # Примеры оформления исследования
 
+## Как получить результат максимально быстро
+
+### PDF статьи — автоматически через GitHub Actions
+Ничего ставить не надо. После мёрджа в `main` workflow `.github/workflows/build-paper.yml`:
+1. соберёт `paper/paper.pdf`,
+2. положит его в артефакты запуска (скачивается со страницы Actions),
+3. опубликует на ветку `gh-pages` (если включить GitHub Pages в настройках репо — PDF будет доступен по ссылке).
+
+Запустить вручную: вкладка **Actions → Build LaTeX paper → Run workflow**.
+
+### Дашборд — один клик на Streamlit Cloud
+1. Зайти на <https://share.streamlit.io> под своим GitHub.
+2. **New app** → репо `jerrylipsiha-lang/claude` → ветка `main` → файл `dashboard/app.py`.
+3. Готово: получишь публичную ссылку вида `https://<app>.streamlit.app`.
+
+---
+
+
 ## 1. LaTeX-шаблон статьи — `paper/paper.tex`
 Шаблон научной статьи по региональной экономике с:
 - титульным блоком, аннотацией, ключевыми словами, JEL-кодами
