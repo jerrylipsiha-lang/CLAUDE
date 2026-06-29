@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1" />
+  <title>Без цензуры — Будько и Позов</title>
+  <meta name="description" content="Разговор по душам с Иваном Будько и Дмитрием Позовым — обо всём подряд, без купюр." />
+  <meta name="theme-color" content="#1c1612" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/png" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Без цензуры" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Шапка -->
+    <header class="topbar">
+      <div class="avatars" aria-hidden="true">
+        <span class="av av-budko">ИБ</span>
+        <span class="av av-pozov">ДП</span>
+      </div>
+      <div class="who">
+        <div class="who-title">Будько &amp; Позов</div>
+        <div class="who-sub"><span class="dot"></span> в сети · говорят без купюр</div>
+      </div>
+      <button class="icon-btn" id="settingsBtn" aria-label="Настройки" title="Настройки">⚙️</button>
+    </header>
+
+    <!-- Лента сообщений -->
+    <main class="chat" id="chat" role="log" aria-live="polite"></main>
+
+    <!-- Подсказки тем -->
+    <div class="chips" id="chips" aria-label="Темы для разговора"></div>
+
+    <!-- Поле ввода -->
+    <form class="composer" id="composer" autocomplete="off">
+      <textarea id="input" class="input" rows="1" placeholder="Спроси о чём угодно…" enterkeyhint="send"></textarea>
+      <button type="submit" class="send" id="send" aria-label="Отправить">➤</button>
+    </form>
+  </div>
+
+  <!-- Шторка настроек -->
+  <div class="sheet-backdrop" id="sheetBackdrop" hidden>
+    <section class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+      <div class="sheet-head">
+        <h2 id="sheetTitle">Настройки</h2>
+        <button class="icon-btn" id="closeSheet" aria-label="Закрыть">✕</button>
+      </div>
+
+      <div class="setting">
+        <div class="setting-row">
+          <label for="liveToggle"><b>Живой режим (ИИ)</b><br /><span class="muted">Ответы генерирует Claude — разговор каждый раз новый.</span></label>
+          <label class="switch"><input type="checkbox" id="liveToggle" /><span class="slider"></span></label>
+        </div>
+        <div id="liveOpts" class="live-opts" hidden>
+          <label class="field">
+            <span>Ключ Anthropic API</span>
+            <input type="password" id="apiKey" placeholder="sk-ant-..." autocomplete="off" spellcheck="false" />
+          </label>
+          <label class="field">
+            <span>Модель</span>
+            <select id="model">
+              <option value="claude-opus-4-8">Claude Opus 4.8 (умнее)</option>
+              <option value="claude-sonnet-4-6">Claude Sonnet 4.6 (быстрее)</option>
+              <option value="claude-haiku-4-5">Claude Haiku 4.5 (дешевле)</option>
+            </select>
+          </label>
+          <p class="warn">🔒 Ключ хранится только в этом браузере (localStorage) и уходит напрямую в Anthropic. Заведите отдельный ключ с лимитом. Это ваши токены.</p>
+        </div>
+      </div>
+
+      <button class="ghost-btn" id="clearChat">🧹 Очистить разговор</button>
+
+      <div class="about">
+        <p><b>Без цензуры</b> — пародийное приложение-болталка. «Иван Будько» и «Дмитрий Позов» — собирательные комические персонажи, а не реальные люди. Юмор грубоватый, но по-доброму.</p>
+        <p class="muted">Офлайн-режим работает без интернета и ключа. Можно установить на телефон: «Добавить на главный экран».</p>
+      </div>
+    </section>
+  </div>
+
+  <script src="dialogue.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

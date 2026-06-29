@@ -1,0 +1,19 @@
+{
+  "name": "Без цензуры — Будько и Позов",
+  "short_name": "Без цензуры",
+  "description": "Разговор по душам с Иваном Будько и Дмитрием Позовым — обо всём подряд, без купюр.",
+  "lang": "ru",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#100c0a",
+  "theme_color": "#1c1612",
+  "categories": ["entertainment", "social", "lifestyle"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
